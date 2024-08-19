@@ -23,3 +23,4 @@ function listStudents(students) {
 }
 listStudents([student1]);
 // introduceAllStudents except expelled
+// getallStudentsFromCourse 
