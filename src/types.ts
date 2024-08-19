@@ -7,25 +7,43 @@ type Student = {
     expelled: boolean;
 }
 
-function introduceStudent(name: string, age: number, isStudent: boolean, courses: string[]): string {
-    let introduction = `Name: ${name}`
-    introduction += `\nAge: ${age}`
-    introduction += `\nIs student: ${isStudent ? "Yes" : "No"}`
-    introduction += `\nCourses: ${courses.join(", ")}`
+function introduceStudent(student: Student): string {
+    let introduction = `Name: ${student.fullName}`
+    introduction += `\nDOB: ${student.dateOfBirth}`
+    introduction += `\nCourses: ${student.courses.join(", ")}`
     return introduction
 }
 
 
 
-const student1: Student = {
-    fullName: "Jonatan V",
-    dateOfBirth: new Date("1996-12-26 18:00"),
-    courses: [
-        "FE23 - Typescript",
-        "FE23 - AM2",
-    ],
-    expelled: false,
-}
+const students: Student[] = [
+    {
+        fullName: "Jonatan V",
+        dateOfBirth: new Date("1996-12-26 18:00"),
+        courses: [
+            "FE23 - Typescript",
+            "FE23 - AM2",
+        ],
+        expelled: false,
+    },
+    {
+        fullName: "John D",
+        dateOfBirth: new Date("1993-12-26 18:00"),
+        courses: [
+            "FE23 - Typescript",
+        ],
+        expelled: true,
+    },
+    {
+        fullName: "Pelle S",
+        dateOfBirth: new Date("1998-12-26 18:00"),
+        courses: [
+            "FE23 - Typescript",
+            "FE23 - AM2",
+        ],
+        expelled: false,
+    }
+]
 
 function listStudents(students: Student[]) {
     students.map(student => {
@@ -33,9 +51,30 @@ function listStudents(students: Student[]) {
     })
 }
 
-listStudents([student1])
+// listStudents([student1])
 
 
 // introduceAllStudents except expelled
+function introduceAllStudents(students: Student[]) {
+    students
+        .filter(student => !student.expelled)
+        .forEach(student => {
+            console.log(
+                introduceStudent(student)
+            )
+            console.log("\n\n")
+        })
+}
 
-// getallStudentsFromCourse 
+introduceAllStudents(students)
+
+// getallStudentsFromCourse
+function getAllStudentsFromCourse(course: string, students: Student[]): Student[] {
+    return students.filter(student => student.courses.includes(course))
+}
+
+const am2Students: Student[] = getAllStudentsFromCourse("FE23 - AM2", students)
+const tsStudents: Student[] = getAllStudentsFromCourse("FE23 - Typescript", students)
+
+console.log("Students taking FE23 - AM2", am2Students.length)
+console.log("Students taking FE23 - Typescript", tsStudents.length)
