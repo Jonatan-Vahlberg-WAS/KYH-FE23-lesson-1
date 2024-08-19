@@ -7,13 +7,15 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "tsc && node dist/index.js",
-    "watch": "nodemon --ext ts --exec 'tsc && node dist/index.js'"
+    "watch": "nodemon --ext ts --exec 'tsc && node dist/index.js'",
+    "watch_win": "concurrently \"tsc -w\" \"nodemon dist/index.js\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@types/node": "^22.4.1",
+    "concurrently": "^8.2.2",
     "typescript": "^5.5.4"
   },
   "dependencies": {
