@@ -13,4 +13,6 @@
 
 //! Types
 
-import "./types.js"
+// import "./types.js"
+
+import "./type_aliases.js"
