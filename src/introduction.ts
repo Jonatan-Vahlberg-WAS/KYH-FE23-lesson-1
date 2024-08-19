@@ -1,0 +1,21 @@
+
+const _name: string = "Jonatan";
+const age: number = 27;
+
+const fullName = "Jonatan Vahlberg"
+const courses: string[] = ["Typescript","HTML/CSS"]
+const courseIds: number[] = [986, 993]
+const now = new Date() // Direct declaration needs no explicit typing
+const hourOfTheDay: number = now.getHours()
+const isHungry: boolean = hourOfTheDay > 11 && hourOfTheDay < 13
+
+
+console.log("Introduction:")
+console.log(_name); // Output: Jonatan
+console.log(age); // Output: 27
+console.log(fullName); // Output: Jonatan Vahlberg
+console.log(courses); // Output: ["Typescript", "HTML/CSS"]
+console.log(courseIds); // Output: [986, 993]
+console.log(now); // Output: [current date and time]
+console.log(hourOfTheDay); // Output: [current hour of the day]
+console.log(isHungry); // Output: [true or false]
