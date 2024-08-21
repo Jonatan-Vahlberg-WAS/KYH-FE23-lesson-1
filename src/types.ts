@@ -1,13 +1,13 @@
 // Type decaleration
 
-type Student = {
+type Student_old = {
     fullName: string;
     dateOfBirth: Date;
     courses: string[];
     expelled: boolean;
 }
 
-function introduceStudent(student: Student): string {
+function introduceStudent(student: Student_old): string {
     let introduction = `Name: ${student.fullName}`
     introduction += `\nDOB: ${student.dateOfBirth}`
     introduction += `\nCourses: ${student.courses.join(", ")}`
@@ -16,7 +16,7 @@ function introduceStudent(student: Student): string {
 
 
 
-const students: Student[] = [
+const students: Student_old[] = [
     {
         fullName: "Jonatan V",
         dateOfBirth: new Date("1996-12-26 18:00"),
@@ -45,7 +45,7 @@ const students: Student[] = [
     }
 ]
 
-function listStudents(students: Student[]) {
+function listStudents(students: Student_old[]) {
     students.map(student => {
         console.log(student.fullName)
     })
@@ -55,7 +55,7 @@ function listStudents(students: Student[]) {
 
 
 // introduceAllStudents except expelled
-function introduceAllStudents(students: Student[]) {
+function introduceAllStudents(students: Student_old[]) {
     students
         .filter(student => !student.expelled)
         .forEach(student => {
@@ -69,12 +69,12 @@ function introduceAllStudents(students: Student[]) {
 introduceAllStudents(students)
 
 // getallStudentsFromCourse
-function getAllStudentsFromCourse(course: string, students: Student[]): Student[] {
+function getAllStudentsFromCourse(course: string, students: Student_old[]): Student_old[] {
     return students.filter(student => student.courses.includes(course))
 }
 
-const am2Students: Student[] = getAllStudentsFromCourse("FE23 - AM2", students)
-const tsStudents: Student[] = getAllStudentsFromCourse("FE23 - Typescript", students)
+const am2Students: Student_old[] = getAllStudentsFromCourse("FE23 - AM2", students)
+const tsStudents: Student_old[] = getAllStudentsFromCourse("FE23 - Typescript", students)
 
 console.log("Students taking FE23 - AM2", am2Students.length)
 console.log("Students taking FE23 - Typescript", tsStudents.length)
